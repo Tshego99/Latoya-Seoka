@@ -1,0 +1,738 @@
+
+
+<!DOCTYPE html>
+
+<html data-wf-page="5e353ee1c6233029090e038a" data-wf-site="5e353ee1c62330c6250e0389">
+<head>
+	<meta charset="utf-8">
+	<title>Live Online Retail</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="Webflow" name="generator">
+		<script src="_include/xmlhttp.js?637574676536431392" type="text/javascript"></script>
+		<script src="_include/General.js?637892480105061135" type="text/javascript"></script>
+		<script src="_include/glue.js?637993302238975424" type="text/javascript"></script>
+		<script src="_include/UI.js?637690469007070994" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="_include/style.css" />
+
+	
+	<script type="text/javascript" defer="" src="https://lortechnologies.com/config/lorv2.js?key=1F0D7A48-6128-404E-9D0C-B90522F87DC9"> </script>
+	
+	<style>
+	@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+	*, body, h1, h2, h3, p, th, td {
+		font-family: 'Varela Round', sans-serif;
+		-webkit-overflow-scrolling: touch;
+		box-sizing:border-box;
+	}
+	body,td,th {font-size:13pt}
+
+
+	::-webkit-scrollbar {
+	 width: 13px;
+	 height: 13px;
+	}
+	::-webkit-scrollbar-thumb {
+	 background: #fbccaf;
+	 /*border-radius: 10px;*/
+	}
+	::-webkit-scrollbar-thumb:hover{
+	 background: #FBCCAF;
+	}
+	::-webkit-scrollbar-track{
+	 background: #ffece0;
+	 /*border-radius: 10px;*/
+	}	
+	#maindiv {
+		padding-left:5px;padding-right:5px
+	}
+	.menuitem {
+		display: flex;height:100%;align-items:center;padding:10px;
+	}
+	@media (min-width:600px) {
+		#maindiv {
+			padding-left:20px;padding-right:20px
+		}
+	}
+	@media (min-width:800px) {
+		#maindiv {
+			padding-left:60px;padding-right:60px
+		}
+	}
+	@media (min-width:1000px) {
+		#maindiv {
+			padding-left:80px;padding-right:80px
+		}
+	}
+	.currency {
+		white-space: nowrap;
+	}
+	</style>
+
+
+	<link rel="stylesheet" type="text/css" href="ideal-image-slider.css?637556710020000000" />
+	<link rel="stylesheet" type="text/css" href="Ideal_Image_Theme_default.css?637556710020000000" />
+
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
+
+</head>
+<body style="padding:0px;margin:0px;">
+
+	<div style="display: flex;height:90px;width:100%;border-bottom:1px solid #f37321;justify-content: space-between;">
+		<div style="display: flex;height:100%;align-items:center;padding-left:40px"><img src="images/logo_2021.png" /></div>
+
+		<div class="menuitem" style="background-color:#F47421;"><a style="font-size:18px;color:white;font-weight:normal" href="login.aspx">LOGIN/REGISTER</a></div>
+	</div>
+	<div id="maindiv" style="display:flex;flex-direction:column;box-sizing:border-box;">
+
+
+
+
+		<div style="background-image:url('images/home/LOR%20Website%202021%20Landing%20Page%20Banner%20Orange%20Wave%20Element.png');background-repeat:no-repeat;background-position:bottom;">
+			<div style="width:100%">
+				<div>
+					<div style="color: #004f9d; font-weight:bold; font-size: 50px; text-align: center;padding-top:20px;padding-bottom:20px">
+						Live Online Retail
+					</div>
+					<div style="color: #f37321; font-size: 46px; text-align: center">
+						Experience the human touch in the online world.
+					</div>
+					<div style="color: #f37321; font-size: 46px; text-align: center">
+						With a leading Live Chat packed with features for a great customer experience.
+					</div>					
+					<div style="text-align:center;padding-top:20px">
+						<img style="width:100%;max-width:700px" src="images/home/LOR%20Website%202021%20Landing%20Page%20Banner%20Image%20Element.png" />
+					</div>
+				</div>
+			</div>
+			<div style="text-align:center">
+				<div style="color: #b2b5b6; font-size: 24px; text-align: center;padding-top:10px;text-transform:uppercase">
+					Watch our video for a preview on how live online retail can turn browsers into customers by offering an enhanced customer experience
+				</div>
+				<div style="padding-top:40px;padding-bottom:40px">
+					<video src="https://lortechnologies.com/lor2021.mp4" width="100%" controls="controls" />
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<div style="background-color:#e4e6f3;display: block;">
+			<div style="background-color:#9199cc;height:200px;text-align:center;text-transform:uppercase;color:white;font-size:30px;padding-top:40px">Experience the human touch process</div>
+			<div style="text-align:center;text-transform:uppercase;color:white;font-size:30px;padding-top:40px"><img style="width:100%" src="images/home/LOR Website 2021 People Images.png" /></div>
+		</div>
+
+
+
+		<script>
+			function changecurrency(currency,symbol) {
+				var modifier=1
+				if (currency == 'ZAR') {
+					updatecurrency(1, 'R')
+				}
+				else
+				{
+					httpget('https://api.frankfurter.app/latest?amount=1&from=ZAR&to=' + currency, function (xmlcaller) {
+						var obj = JSON.parse(xmlcaller.responseText)
+						updatecurrency(obj['rates'][currency],symbol)
+					})
+				
+				}
+			}
+			function updatecurrency(modifier,symbol) {
+				var vals = document.getElementsByClassName('currency')
+				for (var n = 0; n < vals.length; n++) {
+					vals[n].innerHTML=symbol + ' ' + (vals[n].getAttribute('data-value')*modifier).toFixed(2)
+				}
+			}
+		</script>
+		<div style="background-color:#f6f6f6;display: block;text-align:center" id="pricingdiv">
+			<br />
+			<a style="font-size:18px;font-weight:normal" href="#" data-tip="elem:doc('featurespopup'),center:true" onclick="return false">Click here to view product features</a>
+			<br />
+			<div style="font-size:80px;font-weight:normal;text-align:center;padding-top:40px"><span style="font-size:80px;font-weight:bold;color:#004f9d"> flexible</span> Plans</div>
+			<div style="font-size:36px;font-weight:normal;text-align:center;padding-top:30px">Choose Your Currency Option</div>
+			<div style="font-size:36px;font-weight:normal;text-align:center;padding-top:30px">
+				<img src="images/home/LOR%20Website%202021%20Currency%20Element%20ZAR.png" onclick="changecurrency('ZAR','R')" />
+				<img src="images/home/LOR%20Website%202021%20Currency%20Element%20GBR.png" onclick="changecurrency('GBP','£')" />
+				<img src="images/home/LOR%20Website%202021%20Currency%20Element%20EUR.png" onclick="changecurrency('EUR','€')" />
+				<img src="images/home/LOR%20Website%202021%20Currency%20Element%20USD.png" onclick="changecurrency('USD','$')" />
+			</div>
+			<div style="font-size:36px;font-weight:normal;text-align:center;padding-top:30px;vertical-align:top;display:flex;flex-wrap:wrap;justify-content:space-evenly">
+				<div style="width:380px;background-color:#f37625;border:1px solid #f37625;vertical-align:top;margin-bottom:20px">
+					<div style="height:140px;background-color:#f6f6f6;text-align:center;padding-top:20px;">
+						<div style="font-size:46px;font-weight:bold;color:#f37625">USER</div><div style="font-size:36px;color:#868686">LICENSE MODEL</div>
+					</div>
+					<div style="color:white;padding:20px">
+						<div style="font-size:26px;font-weight:bold">NO INSTALLATION FEE</div>
+						<div style="font-size:22px;font-weight:bold;padding-top:20px">1 Month FREE Set up and POC</div>
+						<div style="padding-top:20px">
+							<table cellspacing="10">
+								<tr>
+									<td align="left">Starting from</td>
+									<td align="right" class="currency" data-value="1400">R1 400.00</td>
+								</tr>
+
+							</table>
+						</div>
+						<a href="Login_register.aspx?billing=user" style="display:inline-block;margin-top:15px;border-radius:5px;background-color:white;border:0px;color:#f37625;padding:14px;font-size:22px">Choose Plan ></a>
+					</div>
+				</div>
+
+
+				<div style="width:380px;background-color:#ec609e;border:1px solid #ec609e;vertical-align:top;margin-bottom:20px">
+					<div style="height:140px;background-color:#f6f6f6;text-align:center;padding-top:20px;">
+						<div style="font-size:46px;font-weight:bold;color:#ec609e">PAY PER</div><div style="font-size:36px;color:#868686">USE MODEL</div>
+					</div>
+					<div style="color:white;padding:20px">
+						<div style="font-size:26px;font-weight:bold">NO INSTALLATION FEE</div>
+						<div style="font-size:22px;font-weight:bold;padding-top:20px">1 Month FREE Set up and POC</div>
+						<div style="padding-top:20px">
+							<table cellspacing="10">
+								<tr>
+									<td align="left">Starting from</td>
+									<td align="right" class="currency" data-value="1000">R1 000.00</td>
+								</tr>
+
+							</table>
+						</div>
+						<a href="Login_register.aspx?billing=chat" style="display:inline-block;margin-top:15px;border-radius:5px;background-color:white;border:0px;color:#ec609e;padding:14px;font-size:22px;">Choose Plan ></a>
+					</div>
+				</div>
+
+
+				<div style="width:380px;background-color:#2471be;border:1px solid #2471be;vertical-align:top;margin-bottom:20px">
+					<div style="height:140px;background-color:#f6f6f6;text-align:center;padding-top:20px;">
+						<div style="font-size:46px;font-weight:bold;color:#2471be">CUSTOM</div><div style="font-size:36px;color:#868686">MODELS</div>
+					</div>
+					<div style="color:white;padding:20px">
+						<div style="font-size:26px;font-weight:bold">Price On Request</div>
+						<div style="padding-top:20px;font-size:18px">
+							Based on the individual needs of businesses or due to the scale and volumes required we can analyse the business case and formulate a customised proposal that will be best suited for your needs.
+						</div>
+					</div>
+				</div>
+
+
+				<div style="width:380px;background-color:#848dc5;border:1px solid #848dc5;vertical-align:top;margin-bottom:20px">
+					<div style="height:140px;background-color:#f6f6f6;text-align:center;padding-top:20px;">
+						<div style="font-size:46px;font-weight:bold;color:#848dc5">MANAGED</div><div style="font-size:36px;color:#868686">AGENT MODEL</div>
+					</div>
+					<div style="color:white;padding:20px">
+						<div style="font-size:18px;font-weight:normal">
+							Trained Digital Sales Agent
+							<br />
+							LOR Licence Fee
+							<br />
+							Sales Commission for sales concluded
+							<br />
+							Price On Request
+						</div>
+						<div style="font-size:26px;font-weight:bold;padding-top:20px;">Price On Request</div>
+						<div style="font-size:18px;font-weight:normal;padding-top:20px;">														
+							LOR agents are well equipped, trained and inducted to manage the expectation of clients. 
+							The solution is ideal for those industries who do not yet have a digital sales division or do not have a dedicated resource to focus on these sales objectives 
+							Improved Conversion rates, Dedicated resource, KPI driven, Commission sales Driven
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div style="font-size:22px;color:black;margin-top:40px;margin-bottom:40px">
+				For localised pricing options please request from info@lorechnologies.com
+			</div>
+		</div>
+
+
+		<div style="text-align:center;" id="requestquote">
+			<div style="text-align:center;font-size:36px;text-transform:uppercase;margin-top:40px">Request a <span style="color:#F47421;font-size:36px;font-weight:bold">free demo</span> today</div>
+			<br />
+			<br />
+			<br />
+			<style>
+				input,select,option,placeholder {border:0px;background: #F3F3F3 0% 0% no-repeat padding-box;border-radius: 5px;padding:10px;color: #B4B4B4;font-size:18px;width:300px}
+			</style>
+			<div style="display:flex;flex-wrap:wrap;justify-content: space-evenly">
+				<div style="vertical-align:top;">
+					<img style="width:100%;max-width:700px" src="images/home/LOR%20Website%202021%20Person%20Lead%20Form%20Image.png" />
+				</div>
+				<div style="vertical-align:top;padding-top:30px;text-align:left;max-width:500px">
+					<div style="color: #707070;font-size:20px"> Want to understand more of the capabilities of LOR? Request a free demo, no credit card information required.</div>
+					<form id="email-form" name="email-form" data-name="Email Form" class="form">
+						<table cellpadding="10">
+							<tr>
+								<td><input type="text" name="name" data-name="Name" placeholder="Name" id="name" required=""></td>
+							</tr>
+							<tr>
+								<td><input type="text" name="Surname" data-name="Surname" placeholder="Surname" id="Surname" required=""></td>
+							</tr>
+							<tr>
+								<td><input type="email" name="email" data-name="Email" placeholder="Email" id="email" required=""></td>
+							</tr>
+							<tr>
+								<td><input type="number" name="Contact-number" data-name="Contact number" placeholder="Contact number" id="Contact-number" required=""></td>
+							</tr>
+							<tr>
+								<td>
+									<select class="select-field" name="country" data-name="country" id="country" required="">
+										<option value="" hidden disabled selected>Select a country</option>
+										<option value="SA">South Africa (Head Office)</option>
+										<option value="NZ">New Zealand (Australasia and Asian Pacific)</option>
+										<option value="UK">United Kingdom (UK and Europe)</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td><div id="recaptcha" class="g-recaptcha" data-sitekey="6LdLHuIUAAAAACYOCWHVChAPR8RF0iZEQIt8nbsA" style="padding-bottom: 10px;"></div></td>
+							</tr>
+							<tr>
+								<td>
+									<input id="demosubmit" name="demosubmit" type="submit" onclick="sendemail();" value="Submit" data-wait="Please wait..." class="submit-button w-button" style="background: #F47421 0% 0% no-repeat padding-box;border-radius:5px">
+									<div id="emailmsg2" style="display: none" class="text-block">Thank you! Your submission has been received!</div>
+									<div id="emailmsg" style="display: none" class="success-message w-form-done">
+										<div class="text-block">Thank you! Your submission has been received!</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					
+						
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		<style>			
+			.img {
+				width: 100%
+			}
+		</style>
+
+		<div id="divimageslider" style="margin-top:50px;">
+			<div itemscope itemtype="http://schema.org/Product">	
+				<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+					<tr>
+						<td>
+							<div id="slider" style="width:100%;position:relative;">					   					   					   
+								<img data-imgnum="1" data-numimages="6" data-trackme="yes" class="img" src="images/carousel1.jpg" />				       
+								<img data-imgnum="2" data-numimages="6" data-trackme="yes" class="img" data-src="images/carousel2.jpg" src=""/>    
+								<img data-imgnum="3" data-numimages="6" data-trackme="yes" class="img" data-src="images/carousel3.jpg" src=""/>  
+								<img data-imgnum="4" data-numimages="6" data-trackme="yes" class="img" data-src="images/carousel4.jpg" src=""/>  
+								<img data-imgnum="5" data-numimages="6" data-trackme="yes" class="img" data-src="images/carousel5.jpg" src=""/>    
+								<img data-imgnum="6" data-numimages="6" data-trackme="yes" class="img" data-src="images/carousel6.jpg" src=""/>    
+							</div>
+						</td>
+					</tr>
+				</table> 		              
+				<script type="text/javascript" src="ideal-image-slider.js?637556710020000000"></script>
+				<script type="text/javascript" src="iis-bullet-nav.js?637556710020000000"></script>
+				<script defer>	                    
+					var slider = new IdealImageSlider.Slider({
+						selector: '#slider',
+						height: 'auto',
+						interval: 10000
+					});
+					if (doc('slider').childNodes.length > 1) {
+						slider.addBulletNav();
+						slider.start();
+					}
+				</script>
+			</div> 
+		</div> 
+
+
+		
+
+
+		<div style="background-image:linear-gradient(to right,#FFF4ED 0px,#FFF4ED 50%,#FFECE0 50%, #FFECE0 100%);margin-top:40px">
+			<img src="images/home/LOR Website 2021 Human Touch Image.png" style="width:100%" />
+		</div>
+
+		<div style="height:125px;background-color:#FBCCAF;text-align:center">
+			<br />
+			<br />
+			<br />
+			<a href="Terms.aspx" style="font-size:30px;color:#F47421;margin-top:40px">terms of use</a>
+		</div>
+
+
+		<div style="background-color:#004F9D;text-align:center">
+			<div>
+				<div style="padding-left:20px;padding-top:40px;vertical-align:top">
+					<img src="images/logo_white.png" />
+					<div style="font-size:18px;color:white;padding-top:20px"><a style="font-size:18px;color:white;font-weight:normal" href="about.aspx">ABOUT</a></div>
+					<div style="font-size:18px;color:white;padding-top:20px"><a style="font-size:18px;color:white;font-weight:normal" href="#pricingdiv">PRICING</a></div>
+					<div style="font-size:18px;color:white;padding-top:20px"><a style="font-size:18px;color:white;font-weight:normal" href="#requestquote">REQUEST A DEMO</a></div>
+				</div>
+				<div style="padding-left:20px;padding-top:40px;padding-bottom:40px;color:white;font-size:18px;">
+					FOLLOW US ON SOCIAL
+					<div style="padding-top:10px">
+						<a href="https://www.youtube.com/playlist?list=PLqTz32qvCcULWYEqghlc2JxgbuOpGWuGE" target="_blank"><img style="padding-left:0px" src="images/home/LOR%20Website%202021%20YouTube%20Icon.png" /></a> 
+						<a href="https://www.linkedin.com/company/lortechnologies" target="_blank"><img style="padding-left:30px" src="images/home/LOR%20Website%202021%20LinkedIn%20Icon.png" /></a> 
+						<a href="https://www.instagram.com/liveonlineretail?r=nametag" target="_blank"><img style="padding-left:30px" src="images/home/LOR%20Website%202021%20Instagram%20Icon.png" /></a> 
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div style="height:60px;background-color:#E4E6F3;">
+			<div style="padding-left:40px;color:#707070;font-size:15px;padding-top:20px">
+				© LOR 2021. All rights reserved
+			</div>
+		</div>
+	</div>
+
+	<div style="display:none;width:600px;height:80%;overflow:auto;position:fixed;top:200px;bottom:200px;left:0px;right:0px;margin:auto;background-color:white" id="featurespopup">
+		<div>
+			<div style="display:block;background-color:#FBCCAF;">
+				<div style="cursor:pointer;width:32px;display:inline-block;background-color:#F47421;padding-left:10px;padding-right:10px;color:white;font-size:30px;font-weight:normal" onclick="showsec(this,doc('featuresdiv'))">-</div>
+				<span style="color:#F47421;font-size:20px;font-weight:normal;padding-left:180px">FEATURES</span>
+			</div>
+
+			<div id="featuresdiv" style="display:block">
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Live Chat</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					A live Chat that is clean and easy to use free of bots
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Duel Translation (Multiple languages - customisable)</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Choose out of the 52 global languages and sell to your customers in your and their language of choice – no additional API installations required, we did that already for you on our side.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Video Chat</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Conveniently switch from a text chat to a Video Chat, make the customer experience tangible and more personal.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Click to call Telephony</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Customers can choose to call the agent directly from the Chat window and their Telephone API will route the call automatically to the agent and keep the chat open shout the customer want to default back to that feature.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Chat Transfer within environment or cross departmental</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Transfer chats between agents or escalate chats to management, all whilst keeping the original chat history.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Client Details Confirmation</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					An agent can with a click of a button ask customers to securely confirm their contact details which updates the chat with the relevant information without an agent having to capture the details physically.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">File Sharing (Attachments or links)</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Easily share files such as documents, applications forms, brochures images or links with customers, get that sale done with over the air transfer of attachments between agents and customers.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Call Me Back (Missed Chats)</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					If a chat is not answered within the KPI of 15 seconds then a customer will get a CALL ME BACK pop up request – serious buyers will leave their contact details for an agent to contact them back
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Call Me Back (After Hour Assistance)</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Should there be no agents available to answer chats an afterhours CALL ME BACK service obtains the contact details of customers for agents to contact them back.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Client Survey Service rating</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					At the end of each chat the customer are asked two service related questions which gets presented back to the agent relating to the experience of the service
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Client Survey Agent rating</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					At the end of each chat the customer are asked two service related questions which gets presented back to the agent for performance reviews.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Chat Transcripts</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Each chat gets an email transcript and customers can also request a copy of said transcript for record purposes.
+				</div>
+			</div>
+
+			
+			<div style="display:block;background-color:#FBCCAF;">
+				<div style="cursor:pointer;width:32px;display:inline-block;background-color:#F47421;padding-left:10px;padding-right:10px;color:white;font-size:30px;font-weight:normal" onclick="showsec(this,doc('appdiv'))">+</div>
+				<span style="color:#F47421;font-size:20px;font-weight:normal;padding-left:180px">APPLICATION</span>
+			</div>
+			<div id="appdiv" style="display:none">
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Installation Guide with Domain Dedicated Code and Database</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					One pager that contains the Domain specific 2 line of code to be installed on the website and pages within the website of your choice. It also contains the details on how to install the tracking hooks and how to customise the chat to your company CI.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Assisted On-boarding</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Our team is available to assist with the LOR on-boarding albeit technical or operational.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Multiple Page Installation</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					You can run LOR of multiple pages on your website, Engage with customers from the home page right through the process or select specific targeted content to start engagements with customers.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Web and Mobile user friendly</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					LOR runs of a Website interface as well as a Mobile Application so agents can choose the device of their liking. Multiple sessions also allows agents to move from mobile to desktop and vice versa
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Customisable tracking hooks</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					You can choose what content to track on your website that will give agents the best visibility of a customer’s journey for example a tracking hook on a button will show the agent that a customer is clicking that specific button – obtain real time insights of customer movements
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Live Tracking on web page activity</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					The live tracking gives agents a real time visual of what your web customers are looking at in that very moment. Observe customer behaviours and track their journey and prepare to influence their decision making process.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Traffic Tracking on website site items</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					See in real time how many unique views you receive on your website, we count each event as a unique event so you can easily see what traffic occurs when agents are online or offline. A great indication of staff capacity needs.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Android and iOS Mobile App functionality</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Our Mobile App is available on Android as well as Apple iOS and can be used on mobile devices – no need for office space sell or service from anywhere at any time.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Multiple session functionality between Desktop and Mobile devices - Single log on</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					We allow agents to switch between devices on the same chat. So if a mobile device goes flat the agent can move to desktop web and continue with the conversation or Go from your desk to the sales floor for an improved customer experience.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Mobile Push notification of incoming chats</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Agents won’t have to stare at their screens all day to catch that all important engagement, a push notification to the App on their device will notify them of incoming chat request. The notification is also audible with a ping sound.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Desktop Notification Pop Up of incoming chat</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Same as per the above, but desktop pop up notifications with an audio que so that all engagements are notified to the agents.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Chat Count down Timer to Acceptance of Chat to drive KPI</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					A 15 Second Chat Acceptance Count down timer forces a KPI of instant engagement. For the best online customer experience you have to drive the speed of the answer and with this function we control that acceptance ratio. If a chat is not answered in the time it gets allocated to a MISSED CHAT and the customer can request a Call back so that you never lose that serious customer.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Customised  Team Structures</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Structure your teams on the easy to use Back Office, Whether its different departments, regions, territories etc. it can be set up in accordance to your company organogram for easy management and reporting.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Customisable CI on Chat widget</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					The installation document comes with instructions on how to customise the Chat front end and back end to represent your company CI – LOR will look and feel like your brand to your customers.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Data Security (POPIA, GDPR, CCPA, LGPD compliant)</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					We do not track or scrape IP addresses and data collected for the purpose it is intended for is securely stored within the SQL database with required data encrypting and redactions.
+				</div>
+			</div>
+
+
+
+
+
+
+			<div style="display:block;background-color:#FBCCAF;">
+				<div style="cursor:pointer;width:32px;display:inline-block;background-color:#F47421;padding-left:10px;padding-right:10px;color:white;font-size:30px;font-weight:normal" onclick="showsec(this,doc('reportingdiv'))">+</div>
+				<span style="color:#F47421;font-size:20px;font-weight:normal;padding-left:180px">REPORTING</span>
+			</div>
+
+			<div id="reportingdiv" style="display:none">
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Dashboard Reporting</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Easy view dashboard with real time data is available to all users on the profile according to their level in the organisational structure
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Live Statistical reports</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					View agent online activity and chat engagement broken down by Teritory, Region, Group, Division and Agent
+				</div>
+			</div>
+
+
+
+
+			<div style="display:block;background-color:#FBCCAF;">
+				<div style="cursor:pointer;width:32px;display:inline-block;background-color:#F47421;padding-left:10px;padding-right:10px;color:white;font-size:30px;font-weight:normal" onclick="showsec(this,doc('managementdiv'))">+</div>
+				<span style="color:#F47421;font-size:20px;font-weight:normal;padding-left:180px">MANAGEMENT</span>
+			</div>
+			<div id="managementdiv" style="display:none">
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Notifications on Desktop and Mobile of Agent log in activity</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Managers and Administrators can see in real time the actions of their agents relative to them being available to customers
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Notifications on Desktop and Mobile of Agent Chat Acceptance activity</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Managers and Administrators can see in real time the actions of their agents relative to them answering chats
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Notifications on Desktop and Mobile of Agent log off activity</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Managers and Administrators can see in real time the actions of their agents relative to them logging on and off the system or App
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Live reporting on all projects</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Get live reports on all projects
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Rights and Permissions settings</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Easily create access depending on organisational requirement i.e. Super Administrator, Administrator or Agent
+				</div>
+			</div>
+
+
+
+			<div style="display:block;background-color:#FBCCAF;">
+				<div style="cursor:pointer;width:32px;display:inline-block;background-color:#F47421;padding-left:10px;padding-right:10px;color:white;font-size:30px;font-weight:normal" onclick="showsec(this,doc('supportdiv'))">+</div>
+				<span style="color:#F47421;font-size:20px;font-weight:normal;padding-left:180px">SUPPORT</span>
+			</div>
+			<div id="supportdiv" style="display:none">
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Email Support</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Operational and Technical support
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Dedicated Account Manager</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Operational and Technical support
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Access to Technical Team</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Operational and Technical support
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Self Service Portal</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Conduct the on-boarding your self – generate the LOR code for your website without technical intervention.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Automated Back Office</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Customise the chat widget from the back office without relying on the technical team, change the CI and style with a standardised pallet of items and options.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Customisable buttons</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Change the look and feel of the buttons in the back end without relying on the technical teams.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">API integrations</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Intergrade LOR to Lead Management Systems and CRM for added reporting and tracking of customer engagements
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Applications</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					See which devices the agent are logging in from Website or Mobile
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Work Scheduler</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Upload your agents shift rosters and LOR will schedule their availability accordingly
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Automated Follow Ups</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Send reminders of Call Me Back requests to ensure that they were actioned accordingly
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">First Response Time</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					See when the Agents first response was to a chat requests and measure against the set KPI
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Average Response Time</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					See what an agents average response time is over a period of time and measure against KPI requirements.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">Banned Visitors</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Block visitors that conduct themselves inappropriately.
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">First Response Time</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					See when the Agents first response was to a chat requests and measure against the set KPI
+				</div>
+
+				<div style="background-color:#FFECE0;color:black;font-weight:normal;padding:10px;font-size:16px">2 Step Verification</div>
+				<div style="padding:10px;color:#707070;font-size:14px">
+					Added security to ensure only agents uses the application to potential customers
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function showsec(src, target) {
+			if (src.innerHTML == '+') {
+				src.innerHTML = '-'
+				target.style.display = 'block'
+			}
+			else {
+				src.innerHTML = '+'
+				target.style.display = 'none'
+			}
+		}
+	</script>
+	<script>	    
+		function sendemail() {
+			var div1 = document.getElementById('emailmsg2');
+			var response = grecaptcha.getResponse();
+			if (response.length == 0) {
+				//reCaptcha not verified                              
+				alert('Please verify that you are not a robot.');
+				div1.style.display = 'none';
+			} else {
+				var firstname = document.getElementById('name').value;
+				var surname = document.getElementById('Surname').value;
+				var email = document.getElementById('email').value;
+				var tel = document.getElementById('Contact-number').value;
+				var country = document.getElementById('country').value;
+				if (firstname != '' && surname != '' & email != '' && tel != '' && country != '') {
+
+					//httppost('sendemail.aspx', 'firstname=' + firstname + '&surname=' + surname + '&email=' + email + '&tel=' + tel + '&country=' + country);
+
+					httpget('sendemail.aspx?firstname=' + firstname + '&surname=' + surname + '&email=' + email + '&tel=' + tel + '&country=' + country);
+
+					div1.style.display = 'block';
+
+					//httpget('sendemail.aspx?firstname=' + firstname + '&surname=' + surname + '&email=' + email + '&tel=' + tel + '&country=' + country, function (xmlcaller) {
+					//    var resp = xmlcaller.responseText
+					//    if (resp == "OK") {
+					//        div1.style.display = 'block';                           
+					//    } else {
+					//        div1.style.display = 'none';                           
+					//    }
+					//})
+				}
+			}
+		}
+	</script>
+	
+
+
+
+
+</body>
+</html>

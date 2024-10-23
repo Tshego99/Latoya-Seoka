@@ -1,0 +1,331 @@
+.lor_chatbar,
+.lor_chatbar::before,
+.lor_chatbar::after,
+.lor_chatbar *
+.lor_chatbar *::before,
+.lor_chatbar *::after {
+	all: revert;
+}
+
+.lor_chatbar {
+	box-shadow: 0px 2px 5px 0px #aeaeae;
+	background-color: white;
+	display: inline-block;
+	cursor: pointer;
+	font-family: Arial Rounded MT !important;
+	font-size: 15px;
+	padding-bottom: 0px;
+	text-decoration: none;
+	position: fixed;
+	bottom: 6%;
+	right: 0%;
+	z-index: 16000;
+	width: 280px;
+	transition: all 0.5s ease;
+	color: #004f9d !important;
+	box-sizing: border-box;
+	border-radius: 5px 5px 0px 0px;
+	max-height: 90%;
+	z-index: 1002;
+}
+
+.lor_chaticon {
+	display: inline-block;
+	cursor: pointer;
+	position: fixed;
+	bottom: 6%;
+	right: 0%;
+	z-index: 1600;
+	transition: height 0.5s ease;
+	box-sizing: border-box;
+	transition: all 0.5s ease;
+	transform-origin: bottom right;
+}
+
+.lor_chatbar * {
+	color: #004f9d !important;
+	font-family: Arial Rounded MT !important;
+	line-height: normal;
+	margin: unset;
+	padding: unset;
+	text-align: unset;
+	border-width: unset;
+	border-style: unset;
+	vertical-align: unset;
+	width: unset;
+	box-sizing: unset;
+	margin-bottom: unset;
+	border-collapse: unset;
+	border-spacing: unset;
+	border-radius: unset;
+	box-sizing: border-box;
+}
+
+.lor_forminput {
+	padding: 4px;
+	font-size: 14px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 100%;
+	box-shadow: 0px 2px 5px 0px gainsboro;
+	border: 1px solid gainsboro;
+}
+
+.lor_agentbar {
+	box-shadow: 0px 3px 4px #00000029;
+	display: flex;
+	padding: 5px;
+	margin-bottom: 5px;
+	height: 80px;
+	background-color: white;
+	align-items: center;
+}
+
+.lor_chatname {
+	box-shadow: 0px 3px 6px #00000029;
+	border-radius: 6px;
+	border: 0px;
+	height: 35px;
+	width: 100%;
+	font-size: 17px;
+	padding: 5px;
+	border: 1px solid gainsboro;
+}
+
+.lor_chattools {
+	box-shadow: 0px 3px 6px #00000029;
+	border: 1px solid #DEDEDE;
+	border-radius: 4px;
+	padding: 3px;
+	margin-right: 10px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+.lor_chatbutton {
+	box-shadow: 0px 3px 6px #00000029;
+	text-align: center;
+	border-radius: 6px;
+	height: 45px;
+	background-color: #ea368e; /*black;*/
+	color: #ffffff !important; /*white;*/
+	width: 100%;
+	font-size: 20px;
+	margin-top: 20px;
+	padding: 8px;
+}
+
+.chatbutton {
+	box-shadow: 0px 3px 6px #00000029;
+	background-color: #ea368e;
+	color: #ffffff !important;
+	width: 100%;
+	font-size: 14px;
+	margin-top: 14px;
+	padding: 6px;
+}
+
+.lor_chatheader {
+	box-shadow: 0px 3px 6px #00000029;
+	background-color: #ea368e; /*black;*/
+	color: #ffffff !important; /*white;*/
+	width: 100%;
+	font-size: 14px;
+	padding: 6px;
+	align-items: center;
+	display: flex;
+	border-radius: 5px 5px 0px 0px;
+}
+
+.lor_chatwidget {
+	fill: #ea368e;
+}
+
+.lor_chatheader * {
+	color: #ffffff !important; /*white;*/
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#dealerchatname {
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+}
+
+.chathistory_name {
+	opacity: 0.5;
+	font-size: 9px;
+}
+
+.chatname {
+	font-weight: bold !important;
+	color: #f37321 !important;
+}
+
+.chattext {
+	color: #004f9d;
+	word-break: break-word;
+}
+
+.callbackbutton {
+	width: 100%;
+	background-color: black; /*#004f9d;*/
+	color: #ffffff !important;
+	height: 33px;
+	padding: 3px 0px;
+	border: 0px;
+	display: flex;
+	align-items: center;
+}
+
+	.callbackbutton * {
+		color: #ffffff !important;
+		/*text-align: center;*/
+	}
+
+#chathistorydiv {
+	background-color: #ffffff !important;
+	padding: 5px;
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+	border: 0px;
+}
+
+#chatsenddiv {
+	margin-top: 10px;
+}
+
+#chatcomment {
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	border: 1px solid #C9C9C9;
+	border-radius: 10px;
+}
+
+.chatwindow {
+	box-shadow: 5px 5px 7px gainsboro;
+}
+
+.chatbox {
+	border: medium solid #D22630;
+	padding-bottom: 12px;
+	padding-top: 3px
+}
+
+#chatclosebutton {
+	border-radius: 4px;
+	border: thick double white;
+	background-color: red;
+	color: black
+}
+
+.lor_sendline {
+	height: 53px;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	border: 1px solid gainsboro;
+}
+
+.radio:checked,
+.radio:not(:checked) {
+	position: absolute;
+	left: -9999px;
+}
+
+	.radio:checked + label,
+	.radio:not(:checked) + label {
+		position: relative;
+		padding-left: 20px;
+		padding-right: 20px;
+		cursor: pointer;
+		line-height: 20px;
+		display: inline-block;
+		color: #666;
+	}
+
+		.radio:checked + label:before,
+		.radio:not(:checked) + label:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 18px;
+			height: 18px;
+			border: 1px solid #ddd;
+			border-radius: 100%;
+			background: #fff;
+		}
+
+		.radio:checked + label:after,
+		.radio:not(:checked) + label:after {
+			content: '';
+			width: 12px;
+			height: 12px;
+			background: lightgreen;
+			position: absolute;
+			top: 4px;
+			left: 4px;
+			border-radius: 100%;
+			-webkit-transition: all 0.2s ease;
+			transition: all 0.2s ease;
+		}
+
+		.radio:not(:checked) + label:after {
+			opacity: 0;
+			-webkit-transform: scale(0);
+			transform: scale(0);
+		}
+
+		.radio:checked + label:after {
+			opacity: 1;
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
+
+.lor_speech {
+	box-shadow: 0px 3px 6px #00000029;
+	border-radius: 6px;
+	font-size: 15px;
+	background: white;
+	padding: 10px;
+	text-decoration: none;
+	display: block;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	clear: both;
+	width: 100%;
+}
+
+	.lor_speech.fromdealer {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+
+	.lor_speech.fromuser {
+		grid-column-start: 2;
+		grid-column-end: 4;
+	}
+
+.chatline {
+	display: grid;
+	grid-template-columns: 20px auto 20px;
+}
+
+.chatblock {
+	margin-bottom: 15px;
+	clear: both;
+	width: 60%;
+}
+
+.userphoto {
+	max-height: 100px;
+	max-width: 100px
+}
+
+.userphoto_large {
+	max-height: 170px;
+	max-width: 170px
+}
