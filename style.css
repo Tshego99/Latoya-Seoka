@@ -400,7 +400,7 @@ header img {
 }
 
 .login-register button:hover {
-    background-color: #d9631a; /* Darker orange on hover */
+    background-color: #f37321; /* Darker orange on hover */
 }
 
 /* Live Online Retail Information Section */
@@ -413,7 +413,7 @@ header img {
 
 .live-online-retail-info h2 {
     color: #004f9d; /* Heading color */
-    font-weight: bold; /* Bold text */
+    font-weight:bold; /* Bold text */
     font-size: 50px; /* Font size for heading */
     margin: 0; /* Remove default margin */
 }
@@ -707,8 +707,8 @@ background-color: #ff8533;
 }
 .hero-container {
     position: relative; /* Enables absolute positioning for text */
-    height: 400px; /* Adjust as needed */
-    width: 90%; /* Full width */
+    height: 400px; 
+    width: 90%;
     background-image: url("C:/Users/Intern 1/LOR Technologies Website/LOR Images/download (2).jpg");
     background-size:cover;
     background-position: right;
