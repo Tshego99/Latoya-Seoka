@@ -1,77 +1,47 @@
 <template>
-  <div class="login-container">
-    <h2>Login</h2>
-    <form @submit.prevent="handleLogin">
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" v-model="username" id="username" required />
+  <div class="background-wrapper">
+    <div class="login-container">
+      <h2>Login</h2>
+      <form @submit.prevent="handleLogin">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" v-model="username" id="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" v-model="password" id="password" required />
+        </div>
+        <button type="submit">Login</button>
+        <p class="error-message" v-if="errorMessage">{{ errorMessage }}</p>
+      </form>
+      <div class="forgot-password">
+        <a href="#" @click.prevent="forgotPassword">Forgot your password?</a>
       </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" v-model="password" id="password" required />
-      </div>
-      <button type="submit">Login</button>
-      <p class="error-message" v-if="errorMessage">{{ errorMessage }}</p>
-    </form>
-    <div class="forgot-password">
-      <a href="#" @click.prevent="forgotPassword">Forgot your password?</a>
     </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-import axios from 'axios'
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-const username = ref('')
-const password = ref('')
-const errorMessage = ref('') // Ref to store error messages
-
-const handleLogin = async () => {
-  try {
-    const response = await axios.post('http://localhost:3000/login', {
-      username: username.value,
-      password: password.value,
-    });
-
-    // Assuming the token is returned in response.data.token
-    localStorage.setItem('token', response.data.token);
-    alert('Login successful');
-    
-    // Redirect to a protected route(Dashboard)
-    router.push('/dashboard');
-  } catch (error) {
-    // Improved error handling
-    if (error.response) {
-      // Server responded with a status other than 200
-      errorMessage.value = error.response.data.message || 'Login failed';
-    } else if (error.request) {
-      // Request was made but no response was received
-      errorMessage.value = 'Login failed: No response from server';
-    } else {
-      // Something else caused the error
-      errorMessage.value = `Login failed: ${error.message}`;
-    }
-  }
-}
-
-const forgotPassword = () => {
-  // Handle forgot password logic
-  alert('Forgot password feature is not implemented yet.');
-}
-</script>
-
 <style scoped>
-.login-container {
-  max-width: 300px;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+.background-wrapper {
+  background-image: url("../views/Pork-Rib-Kota-7.jpeg"); /* Adjust if image path differs */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.login-container {
+  background-color: rgba(255, 255, 255, 0.95); /* Soft white for contrast */
+  max-width: 350px;
+  width: 100%;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .form-group {
   margin-bottom: 15px;
 }

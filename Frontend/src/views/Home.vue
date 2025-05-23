@@ -1,5 +1,5 @@
 <template>
-    <div class="home-container">
+  <div class="home-container">
     <h1>Welcome to ChefApp!</h1>
 
     <div class="background">
@@ -9,20 +9,22 @@
         <div class="contact-details">
           <p><strong>Email:</strong> support@chefapp.com</p>
           <p><strong>Phone:</strong> +27 81 854 6502</p>
-          <p><strong>Address:</strong> 123 KotaChef Street, Klipfontein, FC 12345</p>
+          <p>
+            <strong>Address:</strong> 123 KotaChef Street, Klipfontein, FC 12345
+          </p>
         </div>
       </div>
     </div>
   </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'Home',
-  }
-  </script>
-  
-  <style scoped>
+</template>
+
+<script>
+export default {
+  name: "Home",
+};
+</script>
+
+<style scoped>
 .home-container {
   position: relative;
 }
@@ -42,7 +44,7 @@ h1 {
 
 /* Background Image Styling */
 .background {
-  background-image: url('../assets/background img.JPG');
+  background-image: url("../views/Pork-Rib-Kota-7.jpeg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -56,14 +58,18 @@ h1 {
   padding-top: 100px;
 }
 
-
 .contact-us {
-  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Slightly transparent background */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 20%; 
+  top: 20%;
   right: 5%;
   width: 300px;
   text-align: left;
@@ -78,4 +84,3 @@ h1 {
   margin: 5px 0;
 }
 </style>
-  

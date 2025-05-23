@@ -4,15 +4,22 @@
 
     <!-- List of food items -->
     <ul class="food-list">
-      <li v-for="item in foodItems" :key="item.id" :class="item.colorClass" class="food-item">
+      <li
+        v-for="item in foodItems"
+        :key="item.id"
+        :class="item.colorClass"
+        class="food-item"
+      >
         <h3 class="food-name">{{ item.name }}</h3>
         <p class="food-details">Price: R{{ item.price.toFixed(2) }}</p>
         <p class="food-ingredients">
-          <strong>Ingredients:</strong> {{ item.ingredients.join(', ') }}
+          <strong>Ingredients:</strong> {{ item.ingredients.join(", ") }}
         </p>
         <div class="item-actions">
           <button @click="editItem(item)" class="edit-button">Edit</button>
-          <button @click="deleteItem(item.id)" class="delete-button">Delete</button>
+          <button @click="deleteItem(item.id)" class="delete-button">
+            Delete
+          </button>
         </div>
       </li>
     </ul>
@@ -23,59 +30,99 @@
       <h3 v-else>Add New Food Item</h3>
       <div class="form-group">
         <label for="name">Name:</label>
-        <input id="name" v-model="newItem.name" placeholder="Enter name" required />
+        <input
+          id="name"
+          v-model="newItem.name"
+          placeholder="Enter name"
+          required
+        />
       </div>
       <div class="form-group">
         <label for="price">Price:</label>
-        <input id="price" v-model.number="newItem.price" type="number" step="0.01" placeholder="Enter price" required />
+        <input
+          id="price"
+          v-model.number="newItem.price"
+          type="number"
+          step="0.01"
+          placeholder="Enter price"
+          required
+        />
       </div>
       <div class="form-group">
         <label for="ingredients">Ingredients (comma separated):</label>
-        <input id="ingredients" v-model="newItem.ingredients" placeholder="Enter ingredients" required />
+        <input
+          id="ingredients"
+          v-model="newItem.ingredients"
+          placeholder="Enter ingredients"
+          required
+        />
       </div>
-      <button type="submit" class="submit-button">{{ isEditMode ? 'Update Item' : 'Add Item' }}</button>
-      <button v-if="isEditMode" @click="cancelEdit" class="cancel-button">Cancel</button>
+      <button type="submit" class="submit-button">
+        {{ isEditMode ? "Update Item" : "Add Item" }}
+      </button>
+      <button v-if="isEditMode" @click="cancelEdit" class="cancel-button">
+        Cancel
+      </button>
     </form>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-import { useFoodItemStore } from '../store/foodItemStore';
+import { ref, onMounted } from "vue";
+import axios from "axios";
+import { useFoodItemStore } from "../store/foodItemStore";
 
 const store = useFoodItemStore();
 const foodItems = ref([]);
-const newItem = ref({ id: null, name: '', price: 0, ingredients: '' });
+const newItem = ref({ id: null, name: "", price: 0, ingredients: "" });
 const isEditMode = ref(false);
 
 // Fetch food items from the backend using Axios
 const fetchItems = async () => {
   try {
-    const response = await axios.get('http://localhost:3000/foodItems');
+    const response = await axios.get("http://localhost:3000/foodItems");
     foodItems.value = response.data;
   } catch (error) {
     // Log the full error object for debugging
-    console.error('Error fetching food items:', {
+    console.error("Error fetching food items:", {
       message: error.message,
       name: error.name,
       code: error.code,
-      response: error.response ? {
-        status: error.response.status,
-        data: error.response.data,
-        headers: error.response.headers,
-      } : null,
+      response: error.response
+        ? {
+            status: error.response.status,
+            data: error.response.data,
+            headers: error.response.headers,
+          }
+        : null,
       request: error.request,
     });
     // Fallback to static data if the API is unavailable
     foodItems.value = [
-      { id: 1, name: 'Chicken Kota', price: 15.00, ingredients: ['Quarter Loaf', 'Fries', 'Chicken'], colorClass: 'chicken-kota' },
-      { id: 2, name: 'Beef Kota', price: 20.00, ingredients: ['Quarter Loaf', 'Fries', 'Beef'], colorClass: 'beef-kota' },
-      { id: 3, name: 'Veggie Kota', price: 12.00, ingredients: ['Quarter Loaf', 'Fries', 'Veggies'], colorClass: 'veggie-kota' },
+      {
+        id: 1,
+        name: "Chicken Kota",
+        price: 15.0,
+        ingredients: ["Quarter Loaf", "Fries", "Chicken"],
+        colorClass: "chicken-kota",
+      },
+      {
+        id: 2,
+        name: "Beef Kota",
+        price: 20.0,
+        ingredients: ["Quarter Loaf", "Fries", "Beef"],
+        colorClass: "beef-kota",
+      },
+      {
+        id: 3,
+        name: "Veggie Kota",
+        price: 12.0,
+        ingredients: ["Quarter Loaf", "Fries", "Veggies"],
+        colorClass: "veggie-kota",
+      },
     ];
   }
 };
-
 
 // Handle form submission
 const handleSubmit = () => {
@@ -89,54 +136,64 @@ const handleSubmit = () => {
 
 // Add new food item
 const addItem = () => {
-  const ingredientsArray = newItem.value.ingredients.split(',').map(ing => ing.trim());
-  axios.post('http://localhost:3000/foodItems', {
-    name: newItem.value.name,
-    price: newItem.value.price,
-    ingredients: ingredientsArray,
-  })
-  .then(response => {
-    foodItems.value.push({ ...response.data, colorClass: determineColorClass(newItem.value.name) });
-  })
-  .catch(error => {
-    console.error('Error adding food item:', error);
-  });
+  const ingredientsArray = newItem.value.ingredients
+    .split(",")
+    .map((ing) => ing.trim());
+  axios
+    .post("http://localhost:3000/foodItems", {
+      name: newItem.value.name,
+      price: newItem.value.price,
+      ingredients: ingredientsArray,
+    })
+    .then((response) => {
+      foodItems.value.push({
+        ...response.data,
+        colorClass: determineColorClass(newItem.value.name),
+      });
+    })
+    .catch((error) => {
+      console.error("Error adding food item:", error);
+    });
 };
 
 // Edit an existing food item
 const editItem = (item) => {
-  newItem.value = { ...item, ingredients: item.ingredients.join(', ') };
+  newItem.value = { ...item, ingredients: item.ingredients.join(", ") };
   isEditMode.value = true;
 };
 
 // Update the item after editing
 const updateItem = () => {
-  const index = foodItems.value.findIndex(item => item.id === newItem.value.id);
+  const index = foodItems.value.findIndex(
+    (item) => item.id === newItem.value.id
+  );
   const updatedItem = {
     ...newItem.value,
-    ingredients: newItem.value.ingredients.split(',').map(ing => ing.trim()),
+    ingredients: newItem.value.ingredients.split(",").map((ing) => ing.trim()),
     colorClass: determineColorClass(newItem.value.name),
   };
   if (index !== -1) {
-    axios.put(`http://localhost:3000/foodItems/${updatedItem.id}`, updatedItem)
+    axios
+      .put(`http://localhost:3000/foodItems/${updatedItem.id}`, updatedItem)
       .then(() => {
         foodItems.value.splice(index, 1, updatedItem);
         isEditMode.value = false;
       })
-      .catch(error => {
-        console.error('Error updating food item:', error);
+      .catch((error) => {
+        console.error("Error updating food item:", error);
       });
   }
 };
 
 // Delete a food item
 const deleteItem = (id) => {
-  axios.delete(`http://localhost:3000/foodItems/${id}`)
+  axios
+    .delete(`http://localhost:3000/foodItems/${id}`)
     .then(() => {
-      foodItems.value = foodItems.value.filter(item => item.id !== id);
+      foodItems.value = foodItems.value.filter((item) => item.id !== id);
     })
-    .catch(error => {
-      console.error('Error deleting food item:', error);
+    .catch((error) => {
+      console.error("Error deleting food item:", error);
     });
 };
 
@@ -147,20 +204,20 @@ const cancelEdit = () => {
 
 // Reset form data
 const resetForm = () => {
-  newItem.value = { id: null, name: '', price: 0, ingredients: '' };
+  newItem.value = { id: null, name: "", price: 0, ingredients: "" };
   isEditMode.value = false;
 };
 
 // Determine the color class based on item name
 const determineColorClass = (name) => {
-  if (name.toLowerCase().includes('chicken')) {
-    return 'chicken-kota';
-  } else if (name.toLowerCase().includes('beef')) {
-    return 'beef-kota';
-  } else if (name.toLowerCase().includes('veggie')) {
-    return 'veggie-kota';
+  if (name.toLowerCase().includes("chicken")) {
+    return "chicken-kota";
+  } else if (name.toLowerCase().includes("beef")) {
+    return "beef-kota";
+  } else if (name.toLowerCase().includes("veggie")) {
+    return "veggie-kota";
   } else {
-    return '';
+    return "";
   }
 };
 
@@ -226,7 +283,7 @@ onMounted(() => {
 
 .edit-button,
 .delete-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -273,7 +330,7 @@ form input {
 
 .submit-button,
 .cancel-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -288,7 +345,6 @@ form input {
   color: #333;
   padding: 0.5rem 1rem;
   border: none;
-  border-radius:4px;
+  border-radius: 4px;
 }
 </style>
-
